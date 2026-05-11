@@ -1,22 +1,34 @@
+////////////////////////////////////////////////////////////////////////////////
+// OBSOLETO: Este script se mantiene solo por compatibilidad.
+// Reemplazar el componente Enemy de este GameObject con "EnemyAI" (en Assets/Scripts/AI/).
+// EnemyAI incluye pathfinding A*, detección de jugador, persecución, patrulla y más.
+////////////////////////////////////////////////////////////////////////////////
+
 using UnityEngine;
 
+/// <summary>
+/// [DEPRECATED] Use EnemyAI en su lugar.
+/// EnemyIA proporciona:
+/// - Pathfinding A* respetando tiles de agua y colliders
+/// - Detección del jugador (rango + ángulo de visión + raycast)
+/// - Patrulla por waypoints o radio
+/// - Ataque con knockback
+/// - Retorno a posición inicial
+/// </summary>
+[System.Obsolete("Usar EnemyAI en su lugar. Véase Assets/Scripts/AI/EnemyAI.cs")]
 public class Enemy : MonoBehaviour
 {
-
-    public float speed = 5;
-
-    private Rigidbody2D rb2D;
-
-    public Transform targetTransform; //se asigna un punto al enemigo para que este vaya hacia �l.
-
+    // Se mantiene vacío para no romper referencias en la escena durante la migración.
+    // Simplemente remueva este componente y añada EnemyAI.
     void Start()
     {
-       rb2D = GetComponent<Rigidbody2D>(); 
+        Debug.LogWarning("[Enemy DEPRECATED] Este script está obsoleto. " +
+            "Remueva este componente y añada 'EnemyAI' (Assets/Scripts/AI/EnemyAI.cs) al GameObject.",
+            this.gameObject);
     }
 
-    
     void Update()
     {
-        rb2D.MovePosition(Vector2.MoveTowards(transform.position, targetTransform.position, speed*Time.deltaTime)); //Movemos al enemigo creando un vector2 el cual va a moverse cuando haya un target asignado; toma la posici�n del enemigo en el plano, luego esa posici�n debe transformarse a la posici�n del target y se toma la velocidad con la quel enemigo ir� al target.
+        // Dejar vacío — la funcionalidad ahora está en EnemyAI.
     }
 }

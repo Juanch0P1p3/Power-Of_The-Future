@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
 
     public float speed = 5; // velocidad del personaje al correr. Como es un public float, el valor puede cambiarse desde el apartado de Unity.
